@@ -3,6 +3,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:lapor_workshop/components/styles.dart';
+import 'package:lapor_workshop/components/vars.dart';
 import 'package:lapor_workshop/models/akun.dart';
 import 'package:lapor_workshop/models/laporan.dart';
 
@@ -108,7 +109,7 @@ class _ListItemState extends State<ListItem> {
                     child: Container(
                       padding: const EdgeInsets.symmetric(vertical: 8),
                       decoration: BoxDecoration(
-                          color: warningColor,
+                          color: warnaStatus[widget.laporan.status],
                           borderRadius: const BorderRadius.only(
                             bottomLeft: Radius.circular(5),
                           ),
