@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:lapor_workshop/app_utils.dart';
+import 'package:lapor_workshop/components/daftar_komentar.dart';
 import 'package:lapor_workshop/components/status_dialog.dart';
 import 'package:lapor_workshop/components/styles.dart';
+import 'package:lapor_workshop/components/tambah_komentar.dart';
 import 'package:lapor_workshop/models/akun.dart';
+import 'package:lapor_workshop/models/comentar.dart';
 import 'package:lapor_workshop/models/laporan.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -16,6 +20,24 @@ class _DetailPageState extends State<DetailPage> {
   bool _isLoading = false;
 
   String? status;
+
+  List<Comentar> comentarList = [];
+
+  @override
+  void initState() {
+    super.initState();
+    getKomentar();
+  }
+
+  Future<void> getKomentar() async {
+    debugPrint("getKomentar");
+    final arguments =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+
+    Laporan laporan = arguments['laporan'];
+    comentarList = await AppUtils.getComentarList(laporan.docId);
+    setState(() {});
+  }
 
   void statusDialog(Laporan laporan) {
     showDialog(
@@ -42,6 +64,8 @@ class _DetailPageState extends State<DetailPage> {
 
     Laporan laporan = arguments['laporan'];
     Akun akun = arguments['akun'];
+
+    getKomentar();
 
     return Scaffold(
       appBar: AppBar(
@@ -140,6 +164,21 @@ class _DetailPageState extends State<DetailPage> {
                             child: Text('Ubah Status'),
                           ),
                         ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      TambahKomentar(
+                        laporan: laporan,
+                        onTambahSelesai: () {
+                          getKomentar();
+                        },
+                      ),
+                      const SizedBox(
+                        height: 16,
+                      ),
+                      DaftarKomentar(
+                        listComentar: comentarList,
+                      ),
                     ],
                   ),
                 ),

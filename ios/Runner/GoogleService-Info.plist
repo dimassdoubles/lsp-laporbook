@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyACAQQFYqEKXRXZLf__LrG2kSlOFuYhZEk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>867811225552</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.laporWorkshop</string>
+	<key>PROJECT_ID</key>
+	<string>lsp-mobile-2865a</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lsp-mobile-2865a.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:867811225552:ios:135369d56e33e6597bd3d5</string>
+</dict>
+</plist>
